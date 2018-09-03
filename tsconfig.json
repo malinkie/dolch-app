@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "esnext",
+    "module": "esnext",
+    "outDir": "dist"
+  },
+  "include": ["src/js/**/*.tsx"],
+  "exclude": ["node_modules"]
+}
