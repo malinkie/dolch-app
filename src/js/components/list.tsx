@@ -1,11 +1,11 @@
-import React from "react";
+import * as React from "react";
 
 const list = ({ words }) => (
-  <ul>
+  <>
     {words.map(word => (
-      <li>{word}</li>
+      <span>{word}</span>
     ))}
-  </ul>
+  </>
 );
 
 export { list as default };

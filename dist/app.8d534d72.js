@@ -24114,13 +24114,13 @@ exports.default = undefined;
 
 var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var header = function header(_ref) {
     var title = _ref.title;
-    return _react2.default.createElement("header", null, _react2.default.createElement("h1", null, title));
+    return React.createElement("header", null, React.createElement("h1", null, title));
 };
 exports.default = header;
 },{"react":"node_modules\\react\\index.js"}],"src\\js\\components\\footer.tsx":[function(require,module,exports) {
@@ -24133,12 +24133,12 @@ exports.default = undefined;
 
 var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var footer = function footer() {
-  return _react2.default.createElement("footer", null);
+  return React.createElement("footer", null);
 };
 exports.default = footer;
 },{"react":"node_modules\\react\\index.js"}],"src\\js\\components\\page.tsx":[function(require,module,exports) {
@@ -24151,7 +24151,7 @@ exports.default = undefined;
 
 var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
 var _header = require("./header");
 
@@ -24163,10 +24163,12 @@ var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 var page = function page(_ref) {
     var title = _ref.title,
         children = _ref.children;
-    return _react2.default.createElement(_react2.default.Fragment, null, _react2.default.createElement(_header2.default, { title: title }), _react2.default.createElement("main", null, children), _react2.default.createElement(_footer2.default, null));
+    return React.createElement(React.Fragment, null, React.createElement(_header2.default, { title: title }), React.createElement("main", null, children), React.createElement(_footer2.default, null));
 };
 exports.default = page;
 },{"react":"node_modules\\react\\index.js","./header":"src\\js\\components\\header.tsx","./footer":"src\\js\\components\\footer.tsx"}],"src\\js\\components\\grades.tsx":[function(require,module,exports) {
@@ -24179,16 +24181,16 @@ exports.default = undefined;
 
 var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
 var _reactRouterDom = require("react-router-dom");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var grades = function grades(_ref) {
   var grades = _ref.grades;
-  return _react2.default.createElement("ul", null, Object.keys(grades).map(function (grade, index) {
-    return _react2.default.createElement(_reactRouterDom.Link, { key: index, to: "/" + grade }, grades[grade].title);
+  return React.createElement("ul", null, Object.keys(grades).map(function (grade, index) {
+    return React.createElement(_reactRouterDom.Link, { key: index, to: "/" + grade }, grades[grade].title);
   }));
 };
 exports.default = grades;
@@ -24202,14 +24204,14 @@ exports.default = undefined;
 
 var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 var list = function list(_ref) {
   var words = _ref.words;
-  return _react2.default.createElement("ul", null, words.map(function (word) {
-    return _react2.default.createElement("li", null, word);
+  return React.createElement(React.Fragment, null, words.map(function (word) {
+    return React.createElement("span", null, word);
   }));
 };
 exports.default = list;
@@ -24246,7 +24248,7 @@ exports.default = undefined;
 
 var _react = require("react");
 
-var _react2 = _interopRequireDefault(_react);
+var React = _interopRequireWildcard(_react);
 
 var _reactRouterDom = require("react-router-dom");
 
@@ -24264,13 +24266,15 @@ var _list2 = _interopRequireDefault(_list);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 var wordList = require("../../config/word-list");
 var grades = Object.keys(wordList);
-var router = _react2.default.createElement(_reactRouterDom.BrowserRouter, null, _react2.default.createElement("div", null, _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: function component() {
-                return _react2.default.createElement(_page2.default, { title: "Dolch Word Lists" }, _react2.default.createElement(_grades2.default, { grades: wordList }));
+var router = React.createElement(_reactRouterDom.BrowserRouter, null, React.createElement("div", null, React.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: function component() {
+                return React.createElement(_page2.default, { title: "Dolch Word Lists" }, React.createElement(_grades2.default, { grades: wordList }));
         } }), Object.keys(wordList).map(function (grade, index) {
-        return _react2.default.createElement(_reactRouterDom.Route, { key: index, path: "/" + grade, component: function component() {
-                        return _react2.default.createElement(_page2.default, { title: wordList[grade].title }, _react2.default.createElement(_list2.default, { words: wordList[grade].words }));
+        return React.createElement(_reactRouterDom.Route, { key: index, path: "/" + grade, component: function component() {
+                        return React.createElement(_page2.default, { title: wordList[grade].title }, React.createElement(_list2.default, { words: wordList[grade].words }));
                 } });
 })));
 exports.default = router;
@@ -24279,7 +24283,7 @@ exports.default = router;
 
 var _reactDom = require("react-dom");
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
+var ReactDOM = _interopRequireWildcard(_reactDom);
 
 var _router = require("./components/router");
 
@@ -24287,7 +24291,9 @@ var _router2 = _interopRequireDefault(_router);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_router2.default, document.getElementById("app"));
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+ReactDOM.render(_router2.default, document.getElementById("app"));
 },{"react-dom":"node_modules\\react-dom\\index.js","./components/router":"src\\js\\components\\router.tsx"}],"node_modules\\parcel-bundler\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -24317,7 +24323,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '51698' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '64222' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
