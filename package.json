@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "clean": "rm -rf .cache dist",
-    "dev": "yarn clean && parcel index.html",
-    "start": "yarn clean && parcel build index.html"
+    "clean": "rm -rf .cache docs",
+    "dev": "yarn clean && parcel -d docs index.html",
+    "start": "yarn clean && parcel build -d docs index.html"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7",
