@@ -1,8 +1,10 @@
 {
+  "homepage": "https://malinkie.github.io/dolch-app",
   "scripts": {
     "clean": "rm -rf .cache docs",
     "dev": "yarn clean && parcel -d docs  index.html",
-    "start": "yarn clean && parcel build -d docs --public-url . index.html"
+    "predeploy": "yarn clean && parcel build -d docs --public-url . index.html",
+    "deploy": "surge -d dolchapp.surge.sh -p docs"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7",
@@ -15,6 +17,7 @@
     "@types/react-router-dom": "^4.3.0",
     "autoprefixer": "^9.1.3",
     "babel-preset-env": "^1.7.0",
+    "gh-pages": "^1.2.0",
     "node-sass": "^4.9.3",
     "postcss-modules": "^1.3.2",
     "react": "^16.4.2",
