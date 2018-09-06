@@ -2,7 +2,7 @@
   "scripts": {
     "clean": "rm -rf .cache docs",
     "dev": "yarn clean && parcel -d docs  index.html",
-    "start": "yarn clean && parcel build -d docs --public-url ./dolch-app/ index.html"
+    "start": "yarn clean && parcel build -d docs --public-url . index.html"
   },
   "devDependencies": {
     "parcel-bundler": "^1.9.7",
