@@ -137,4 +137,4 @@ module.exports={"pre-kindergarten":{title:"Pre K",words:["a","and","away","big",
 },{"react":"+UVH","react-router-dom":"t+CH","./page":"8Vz+","./grades":"cU9q","./list":"VcQq","../../config/word-list":"kS5Q"}],"I43J":[function(require,module,exports) {
 "use strict";var e=this&&this.__importStar||function(e){if(e&&e.__esModule)return e;var r={};if(null!=e)for(var t in e)Object.hasOwnProperty.call(e,t)&&(r[t]=e[t]);return r.default=e,r},r=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});var t=e(require("react-dom")),u=r(require("./components/router"));t.render(u.default,document.getElementById("app"));
 },{"react-dom":"zPAQ","./components/router":"0Xsc"}]},{},["I43J"], null)
-//# sourceMappingURL=/app.924546ba.map
+//# sourceMappingURL=dolch-app/app.924546ba.map
