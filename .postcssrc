@@ -4,6 +4,6 @@
     "autoprefixer": {
       "grid": true
     },
-    "postcss-modules": {}
+    "postcss-modules": true
   }
 }

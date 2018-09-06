@@ -1,0 +1,27 @@
+.layout {
+  width: 80%;
+  margin: auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100px 1fr 50px;
+  grid-template-areas: "header" "main" "footer";
+  font-size: 32px;
+
+  & > * {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.footer {
+  grid-area: footer;
+}

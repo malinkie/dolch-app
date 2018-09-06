@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
     "jsx": "react",
-    "target": "esnext",
-    "module": "esnext",
-    "outDir": "dist"
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": ["src/js/**/*.tsx"],
   "exclude": ["node_modules"]
