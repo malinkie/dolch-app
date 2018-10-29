@@ -1,8 +1,9 @@
 import * as React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Page from "./page";
-import Grades from "./grades";
-import List from "./list";
+import Lists from "./lists";
+import Words from "./words";
+
 const wordList = require("../../config/word-list");
 
 const router = (
@@ -11,29 +12,35 @@ const router = (
       <Route
         exact
         path="/"
-        render={() => (
-          <Page title="Dolch Word Lists">
-            <Grades grades={wordList}>
-              {Object.keys(wordList).map((grade, index) => (
-                <Link key={index} to={`/${grade}`}>
-                  {wordList[grade].title}
+        component={() => (
+          <Page title="Dolch Words">
+            <Lists
+              lists={wordList}
+              renderListItem={renderableItem => (
+                <Link to={`/${renderableItem.title}`}>
+                  {renderableItem.title}
                 </Link>
-              ))}
-            </Grades>
+              )}
+            />
           </Page>
         )}
       />
-      {Object.keys(wordList).map((grade, index) => (
-        <Route
-          key={index}
-          path={`/${grade}`}
-          render={() => (
-            <Page title={wordList[grade].title}>
-              <List words={wordList[grade].words} />
+      <Route
+        path={`/:list`}
+        component={({ match }) => {
+          const wordListEntry = wordList.find(
+            entry => entry.title === match.params.list
+          );
+          return (
+            <Page title={wordListEntry.title}>
+              <Lists
+                lists={wordListEntry.words}
+                renderListItem={renderableItem => renderableItem}
+              />
             </Page>
-          )}
-        />
-      ))}
+          );
+        }}
+      />
     </>
   </Router>
 );

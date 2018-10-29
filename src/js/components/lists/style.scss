@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.listItem {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+}
