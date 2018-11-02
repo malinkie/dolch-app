@@ -1,48 +1,76 @@
 import * as React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import Page from "./page";
 import Lists from "./lists";
-import Words from "./words";
+import Boundary from "./Bondary";
 
 const wordList = require("../../config/word-list");
 
-const router = (
-  <Router>
-    <>
-      <Route
-        exact
-        path="/"
-        component={() => (
-          <Page title="Dolch Words">
-            <Lists
-              lists={wordList}
-              renderListItem={renderableItem => (
-                <Link to={`/${renderableItem.title}`}>
-                  {renderableItem.title}
-                </Link>
+export default class Router extends React.Component {
+  constructor(props) {
+    super(props);
+    const state = {};
+
+    wordList.forEach(list => {
+      state[list.title] = list.words.map(() => false);
+    });
+
+    this.state = state;
+    this.checkWord = this.checkWord.bind(this);
+  }
+
+  findEntry(listName) {
+    return wordList.find(entry => entry.title === listName);
+  }
+
+  checkWord(list, index, selected = false) {
+    const updatedWordList = this.state[list].slice(0);
+
+    updatedWordList[index] = selected;
+    this.setState({ ...this.state, [list]: updatedWordList });
+  }
+
+  render() {
+    return (
+      <Boundary>
+        <BrowserRouter>
+          <>
+            <Route
+              exact
+              path="/"
+              component={() => (
+                <Page title="Dolch Words">
+                  <Lists
+                    list={wordList}
+                    renderListItem={renderableItem => (
+                      <Link to={`/${renderableItem.title}`}>
+                        {renderableItem.title}
+                      </Link>
+                    )}
+                  />
+                </Page>
               )}
             />
-          </Page>
-        )}
-      />
-      <Route
-        path={`/:list`}
-        component={({ match }) => {
-          const wordListEntry = wordList.find(
-            entry => entry.title === match.params.list
-          );
-          return (
-            <Page title={wordListEntry.title}>
-              <Lists
-                lists={wordListEntry.words}
-                renderListItem={renderableItem => renderableItem}
-              />
-            </Page>
-          );
-        }}
-      />
-    </>
-  </Router>
-);
-
-export default router;
+            <Route
+              path={`/:list`}
+              component={({ match }) => {
+                const wordListEntry = this.findEntry(match.params.list);
+                return (
+                  <Page title={wordListEntry.title}>
+                    <Lists
+                      title={wordListEntry.title}
+                      list={wordListEntry.words}
+                      selected={this.state[wordListEntry.title]}
+                      renderListItem={renderableItem => renderableItem}
+                      selectWord={this.checkWord}
+                    />
+                  </Page>
+                );
+              }}
+            />
+          </>
+        </BrowserRouter>
+      </Boundary>
+    );
+  }
+}

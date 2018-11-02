@@ -9,4 +9,8 @@
   width: 200px;
   padding: 10px 0;
   text-align: center;
+
+  &.selected {
+    color: yellow;
+  }
 }

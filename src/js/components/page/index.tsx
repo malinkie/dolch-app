@@ -1,11 +1,12 @@
 import * as React from "react";
-import Header from "../header";
 
 const styles = require("./style.scss");
 
 const page = ({ title, children }) => (
   <div className={styles.layout}>
-    <Header className={styles.header} title={title} />
+    <header className={styles.header}>
+      <h1>{title}</h1>
+    </header>
     <main className={styles.main}>{children}</main>
   </div>
 );
