@@ -2,10 +2,12 @@
   width: 80%;
   margin: auto;
   min-height: 100vh;
+  min-width: 380px;
   font-size: 37px;
 }
 
 .header {
+  position: relative;
   display: flex;
   justify-content: center;
 }
@@ -18,4 +20,15 @@
 .back {
   position: absolute;
   left: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .back {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    > * {
+      display: none;
+    }
+  }
 }
