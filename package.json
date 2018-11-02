@@ -3,7 +3,7 @@
   "scripts": {
     "clean": "rm -rf .cache dist",
     "dev": "yarn clean && parcel index.html",
-    "predeploy": "yarn clean && parcel build --public-url . index.html",
+    "predeploy": "yarn clean && parcel build --public-url . index.html && cp dist/index.html dist/200.html",
     "deploy": "surge -d dolchapp.surge.sh -p dist"
   },
   "devDependencies": {
