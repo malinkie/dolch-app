@@ -2,12 +2,19 @@ import * as React from "react";
 
 const styles = require("./style.scss");
 
-const page = ({ title, children }) => (
+interface PropsInterface {
+  title: string;
+  back?: (className) => React.ReactNode;
+  children: React.ReactNode;
+}
+
+const page = (props: PropsInterface) => (
   <div className={styles.layout}>
     <header className={styles.header}>
-      <h1>{title}</h1>
+      {props.back && props.back(styles.back)}
+      <h1>{props.title}</h1>
     </header>
-    <main className={styles.main}>{children}</main>
+    <main className={styles.main}>{props.children}</main>
   </div>
 );
 

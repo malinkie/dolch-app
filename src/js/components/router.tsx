@@ -56,7 +56,14 @@ export default class Router extends React.Component {
               component={({ match }) => {
                 const wordListEntry = this.findEntry(match.params.list);
                 return (
-                  <Page title={wordListEntry.title}>
+                  <Page
+                    title={wordListEntry.title}
+                    back={className => (
+                      <Link className={className} to="/">
+                        <h1>&#12296;</h1>
+                      </Link>
+                    )}
+                  >
                     <Lists
                       title={wordListEntry.title}
                       list={wordListEntry.words}
